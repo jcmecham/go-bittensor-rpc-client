@@ -455,8 +455,19 @@ func (c *Client) newMessage(method string, paramsIn ...interface{}) (*jsonrpcMes
 	msg := &jsonrpcMessage{Version: vsn, ID: c.nextID(), Method: method}
 	if paramsIn != nil { // prevent sending "params":null
 		var err error
-		if msg.Params, err = json.Marshal(paramsIn); err != nil {
-			return nil, err
+
+		if method == "delegateInfo_getDelegate" || method == "delegateInfo_getDelegated" {
+			var params string
+			if len(paramsIn) == 2 {
+				params = fmt.Sprintf(`[%s,"%s"]`, paramsIn[0], paramsIn[1])
+			} else {
+				params = fmt.Sprintf(`[%s]`, paramsIn[0])
+			}
+			msg.Params = json.RawMessage(params)
+		} else {
+			if msg.Params, err = json.Marshal(paramsIn); err != nil {
+				return nil, err
+			}
 		}
 	}
 	return msg, nil

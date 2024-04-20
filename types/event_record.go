@@ -361,6 +361,69 @@ type EventRecords struct {
 	StateTrieMigration_AutoMigrationFinished []EventStateTrieMigrationAutoMigrationFinished `test-gen-skip:"true"`
 	StateTrieMigration_Halted                []EventStateTrieMigrationHalted                `test-gen-skip:"true"`
 
+	SubtensorModule_WeightsSet                    []EventSubtensorModuleWeightsSet                    `test-gen-blockchain:"bittensor"`
+	SubtensorModule_StakeRemoved                  []EventSubtensorModuleStakeRemoved                  `test-gen-blockchain:"bittensor"`
+	SubtensorModule_StakeAdded                    []EventSubtensorModuleStakeAdded                    `test-gen-blockchain:"bittensor"`
+	SubtensorModule_AxonServed                    []EventSubtensorModuleAxonServed                    `test-gen-blockchain:"bittensor"`
+	SubtensorModule_PrometheusServed              []EventSubtensorModulePrometheusServed              `test-gen-blockchain:"bittensor"`
+	SubtensorModule_NeuronRegistered              []EventSubtensorModuleNeuronRegistered              `test-gen-blockchain:"bittensor"`
+	SubtensorModule_NetworkAdded                  []EventSubtensorModuleNetworkAdded                  `test-gen-blockchain:"bittensor"`
+	SubtensorModule_NetworkRemoved                []EventSubtensorModuleNetworkRemoved                `test-gen-blockchain:"bittensor"`
+	SubtensorModule_RegistrationPerIntervalSet    []EventSubtensorModuleRegistrationPerIntervalSet    `test-gen-blockchain:"bittensor"`
+	SubtensorModule_MaxRegistrationsPerBlockSet   []EventSubtensorModuleMaxRegistrationsPerBlockSet   `test-gen-blockchain:"bittensor"`
+	SubtensorModule_ActivityCutoffSet             []EventSubtensorModuleActivityCutoffSet             `test-gen-blockchain:"bittensor"`
+	SubtensorModule_RhoSet                        []EventSubtensorModuleRhoSet                        `test-gen-blockchain:"bittensor"`
+	SubtensorModule_KappaSet                      []EventSubtensorModuleKappaSet                      `test-gen-blockchain:"bittensor"`
+	SubtensorModule_MinAllowedWeightSet           []EventSubtensorModuleMinAllowedWeightSet           `test-gen-blockchain:"bittensor"`
+	SubtensorModule_ValidatorBatchSizeSet         []EventSubtensorModuleValidatorBatchSizeSet         `test-gen-blockchain:"bittensor"`
+	SubtensorModule_ValidatorSequenceLengthSet    []EventSubtensorModuleValidatorSequenceLengthSet    `test-gen-blockchain:"bittensor"`
+	SubtensorModule_ValidatorEpochPerResetSet     []EventSubtensorModuleValidatorEpochPerResetSet     `test-gen-blockchain:"bittensor"`
+	SubtensorModule_ValidatorExcludeQuantileSet   []EventSubtensorModuleValidatorExcludeQuantileSet   `test-gen-blockchain:"bittensor"`
+	SubtensorModule_ValidatorEpochLengthSet       []EventSubtensorModuleValidatorEpochLengthSet       `test-gen-blockchain:"bittensor"`
+	SubtensorModule_ValidatorLogitsDivergenceSet  []EventSubtensorModuleValidatorLogitsDivergenceSet  `test-gen-blockchain:"bittensor"`
+	SubtensorModule_ValidatorPruneLenSet          []EventSubtensorModuleValidatorPruneLenSet          `test-gen-blockchain:"bittensor"`
+	SubtensorModule_ScalingLawPowerSet            []EventSubtensorModuleScalingLawPowerSet            `test-gen-blockchain:"bittensor"`
+	SubtensorModule_SynergyScalingLawPowerSet     []EventSubtensorModuleSynergyScalingLawPowerSet     `test-gen-blockchain:"bittensor"`
+	SubtensorModule_WeightsSetRateLimitSet        []EventSubtensorModuleWeightsSetRateLimitSet        `test-gen-blockchain:"bittensor"`
+	SubtensorModule_ImmunityPeriodSet             []EventSubtensorModuleImmunityPeriodSet             `test-gen-blockchain:"bittensor"`
+	SubtensorModule_BondsMovingAverageSet         []EventSubtensorModuleBondsMovingAverageSet         `test-gen-blockchain:"bittensor"`
+	SubtensorModule_MaxAllowedValidatorsSet       []EventSubtensorModuleMaxAllowedValidatorsSet       `test-gen-blockchain:"bittensor"`
+	SubtensorModule_EmissionValuesSet             []EventSubtensorModuleEmissionValuesSet             `test-gen-blockchain:"bittensor"`
+	SubtensorModule_NetworkConnectionAdded        []EventSubtensorModuleNetworkConnectionAdded        `test-gen-blockchain:"bittensor"`
+	SubtensorModule_NetworkConnectionRemoved      []EventSubtensorModuleNetworkConnectionRemoved      `test-gen-blockchain:"bittensor"`
+	SubtensorModule_DelegateAdded                 []EventSubtensorModuleDelegateAdded                 `test-gen-blockchain:"bittensor"`
+	SubtensorModule_DefaultTakeSet                []EventSubtensorModuleDefaultTakeSet                `test-gen-blockchain:"bittensor"`
+	SubtensorModule_WeightsVersionKeySet          []EventSubtensorModuleWeightsVersionKeySet          `test-gen-blockchain:"bittensor"`
+	SubtensorModule_MinDifficultySet              []EventSubtensorModuleMinDifficultySet              `test-gen-blockchain:"bittensor"`
+	SubtensorModule_MaxDifficultySet              []EventSubtensorModuleMaxDifficultySet              `test-gen-blockchain:"bittensor"`
+	SubtensorModule_ServingRateLimitSet           []EventSubtensorModuleServingRateLimitSet           `test-gen-blockchain:"bittensor"`
+	SubtensorModule_BurnSet                       []EventSubtensorModuleBurnSet                       `test-gen-blockchain:"bittensor"`
+	SubtensorModule_MaxBurnSet                    []EventSubtensorModuleMaxBurnSet                    `test-gen-blockchain:"bittensor"`
+	SubtensorModule_MinBurnSet                    []EventSubtensorModuleMinBurnSet                    `test-gen-blockchain:"bittensor"`
+	SubtensorModule_TxRateLimitSet                []EventSubtensorModuleTxRateLimitSet                `test-gen-blockchain:"bittensor"`
+	SubtensorModule_RAORecycledForRegistrationSet []EventSubtensorModuleRAORecycledForRegistrationSet `test-gen-blockchain:"bittensor"`
+	SubtensorModule_MaxWeightLimitSet             []EventSubtensorModuleMaxWeightLimitSet             `test-gen-blockchain:"bittensor"`
+	SubtensorModule_DifficultySet                 []EventSubtensorModuleDifficultySet                 `test-gen-blockchain:"bittensor"`
+	SubtensorModule_MaxAllowedUidsSet             []EventSubtensorModuleMaxAllowedUidsSet             `test-gen-blockchain:"bittensor"`
+	SubtensorModule_AdjustmentIntervalSet         []EventSubtensorModuleAdjustmentIntervalSet         `test-gen-blockchain:"bittensor"`
+	SubtensorModule_BulkNeuronsRegistered         []EventSubtensorModuleBulkNeuronsRegistered         `test-gen-blockchain:"bittensor"`
+	SubtensorModule_BulkBalancesSet               []EventSubtensorModuleBulkBalancesSet               `test-gen-blockchain:"bittensor"`
+	SubtensorModule_Sudid                         []EventSubtensorModuleSudid                         `test-gen-blockchain:"bittensor"`
+
+	Triumvirate_Proposed       []EventTriumvirateProposed       `test-gen-blockchain:"bittensor"`
+	Triumvirate_Voted          []EventTriumvirateVoted          `test-gen-blockchain:"bittensor"`
+	Triumvirate_Approved       []EventTriumvirateApproved       `test-gen-blockchain:"bittensor"`
+	Triumvirate_Disapproved    []EventTriumvirateDisapproved    `test-gen-blockchain:"bittensor"`
+	Triumvirate_Executed       []EventTriumvirateExecuted       `test-gen-blockchain:"bittensor"`
+	Triumvirate_MemberExecuted []EventTriumvirateMemberExecuted `test-gen-blockchain:"bittensor"`
+	Triumvirate_Closed         []EventTriumvirateClosed         `test-gen-blockchain:"bittensor"`
+
+	TriumvirateMembers_MemberAdded   []EventTriumvirateMembersMemberAdded   `test-gen-blockchain:"bittensor"`
+	TriumvirateMembers_MemberRemoved []EventTriumvirateMembersMemberRemoved `test-gen-blockchain:"bittensor"`
+
+	SenateMembers_MemberAdded   []EventSenateMembersMemberAdded   `test-gen-blockchain:"bittensor"`
+	SenateMembers_MemberRemoved []EventSenateMembersMemberRemoved `test-gen-blockchain:"bittensor"`
+
 	Sudo_KeyChanged []EventSudoKeyChanged `test-gen-skip:"true"`
 	Sudo_Sudid      []EventSudoSudid      `test-gen-skip:"true"`
 	Sudo_SudoAsDone []EventSudoAsDone     `test-gen-skip:"true"`

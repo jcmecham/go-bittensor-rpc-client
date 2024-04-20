@@ -23,9 +23,9 @@ type AccountInfo struct {
 	Providers   U32
 	Sufficients U32
 	Data        struct {
-		Free       U128
-		Reserved   U128
-		MiscFrozen U128
-		Flags      U128
+		Free       U64
+		Reserved   U64
+		MiscFrozen U64
+		Flags      U64
 	}
 }

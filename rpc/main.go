@@ -21,9 +21,11 @@ import (
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/author"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/beefy"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/chain"
+	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/delegateinfo"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/mmr"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/offchain"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/state"
+	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/subnetinfo"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/rpc/system"
 	"github.com/centrifuge/go-substrate-rpc-client/v4/types"
 )
@@ -32,9 +34,11 @@ type RPC struct {
 	Author   author.Author
 	Beefy    beefy.Beefy
 	Chain    chain.Chain
+	Delegate delegateinfo.DelegateInfo
 	MMR      mmr.MMR
 	Offchain offchain.Offchain
 	State    state.State
+	Subnet   subnetinfo.SubnetInfo
 	System   system.System
 	client   client.Client
 }
@@ -53,6 +57,8 @@ func NewRPC(cl client.Client) (*RPC, error) {
 		Author:   author.NewAuthor(cl),
 		Beefy:    beefy.NewBeefy(cl),
 		Chain:    chain.NewChain(cl),
+		Delegate: delegateinfo.NewDelegateInfo(cl),
+		Subnet:   subnetinfo.NewSubnetInfo(cl),
 		MMR:      mmr.NewMMR(cl),
 		Offchain: offchain.NewOffchain(cl),
 		State:    st,

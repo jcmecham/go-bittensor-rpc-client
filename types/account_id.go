@@ -20,10 +20,12 @@ import (
 	"bytes"
 	"encoding/json"
 	"errors"
+	"fmt"
 	"strings"
 
 	"github.com/centrifuge/go-substrate-rpc-client/v4/scale"
 	"github.com/ethereum/go-ethereum/common/hexutil"
+	"github.com/vedhavyas/go-subkey"
 )
 
 type OptionAccountID struct {
@@ -81,6 +83,12 @@ func (a *AccountID) ToBytes() []byte {
 	return b
 }
 
+func (a *AccountID) ToByteString() (string, error) {
+	addressBytesString := fmt.Sprintf("%v", a.ToBytes())
+	addressBytesString = strings.ReplaceAll(addressBytesString, " ", ",")
+	return addressBytesString, nil
+}
+
 func (a *AccountID) ToHexString() string {
 	if a == nil {
 		return ""
@@ -129,6 +137,15 @@ func NewAccountID(b []byte) (*AccountID, error) {
 func NewAccountIDFromHexString(accountIDHex string) (*AccountID, error) {
 	b, err := hexutil.Decode(accountIDHex)
 
+	if err != nil {
+		return nil, err
+	}
+
+	return NewAccountID(b)
+}
+
+func NewAccountIDFromSS58String(accountIDSS58 string) (*AccountID, error) {
+	_, b, err := subkey.SS58Decode(accountIDSS58)
 	if err != nil {
 		return nil, err
 	}

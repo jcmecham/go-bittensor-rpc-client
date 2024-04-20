@@ -23,6 +23,370 @@ import (
 	"github.com/centrifuge/go-substrate-rpc-client/v4/scale"
 )
 
+type EventTriumvirateMembersMemberAdded struct {
+	Phase  Phase
+	Topics []Hash
+}
+
+type EventTriumvirateMembersMemberRemoved struct {
+	Phase  Phase
+	Topics []Hash
+}
+
+type EventSenateMembersMemberAdded struct {
+	Phase  Phase
+	Topics []Hash
+}
+
+type EventSenateMembersMemberRemoved struct {
+	Phase  Phase
+	Topics []Hash
+}
+
+type EventTriumvirateProposed struct {
+	Phase         Phase
+	AccountID     AccountID
+	ProposalIndex U32
+	ProposalHash  Hash
+	VoteThreshold U32 // number of votes needed to approve
+	Topics        []Hash
+}
+
+type EventTriumvirateVoted struct {
+	Phase        Phase
+	AccountID    AccountID
+	ProposalHash Hash
+	Voted        bool
+	YesCount     U32
+	NoCount      U32
+	Topics       []Hash
+}
+
+type EventTriumvirateApproved struct {
+	Phase        Phase
+	ProposalHash Hash
+	Topics       []Hash
+}
+
+type EventTriumvirateDisapproved struct {
+	Phase        Phase
+	ProposalHash Hash
+	Topics       []Hash
+}
+
+type EventTriumvirateExecuted struct {
+	Phase        Phase
+	ProposalHash Hash
+	Result       DispatchResult
+	Topics       []Hash
+}
+
+type EventTriumvirateMemberExecuted struct {
+	Phase        Phase
+	ProposalHash Hash
+	Result       DispatchResult
+	Topics       []Hash
+}
+
+type EventTriumvirateClosed struct {
+	Phase        Phase
+	ProposalHash Hash
+	YesCount     U32
+	NoCount      U32
+	Topics       []Hash
+}
+
+type EventSubtensorModuleSudid struct {
+	Phase  Phase
+	Result DispatchResult
+	Topics []Hash
+}
+type EventSubtensorModuleWeightsSet struct {
+	Phase       Phase
+	SubnetID    U16
+	CallerIndex U16
+	Topics      []Hash
+}
+
+type EventSubtensorModuleNeuronRegistered struct {
+	Phase      Phase
+	SubnetID   U16
+	NeuronSlot U16
+	AccountID  AccountID
+	Topics     []Hash
+}
+
+type EventSubtensorModuleStakeAdded struct {
+	Phase  Phase
+	Who    AccountID // To AccountID
+	Amount U64       // Amount Staked
+	Topics []Hash
+}
+
+type EventSubtensorModuleStakeRemoved struct {
+	Phase  Phase
+	Who    AccountID // From AccountID
+	Amount U64       // Amount UnStaked
+	Topics []Hash
+}
+
+// --
+type EventSubtensorModuleNetworkAdded struct {
+	Phase    Phase
+	SubnetID U16
+	Modality U16
+	Topics   []Hash
+}
+type EventSubtensorModuleNetworkRemoved struct {
+	Phase    Phase
+	SubnetID U16
+	Topics   []Hash
+}
+type EventSubtensorModuleBulkNeuronsRegistered struct {
+	Phase    Phase
+	SubnetID U16
+	UidCount U16
+	Topics   []Hash
+}
+type EventSubtensorModuleBulkBalancesSet struct {
+	Phase        Phase
+	SubnetID     U16
+	BalanceCount U16
+	Topics       []Hash
+}
+type EventSubtensorModuleMaxAllowedUidsSet struct {
+	Phase    Phase
+	SubnetID U16
+	MaxUids  U16
+	Topics   []Hash
+}
+type EventSubtensorModuleMaxWeightLimitSet struct {
+	Phase     Phase
+	SubnetID  U16
+	MaxWeight U16
+	Topics    []Hash
+}
+type EventSubtensorModuleDifficultySet struct {
+	Phase      Phase
+	SubnetID   U16
+	Difficulty U64
+	Topics     []Hash
+}
+type EventSubtensorModuleAdjustmentIntervalSet struct {
+	Phase    Phase
+	SubnetID U16
+	Interval U16
+	Topics   []Hash
+}
+type EventSubtensorModuleRegistrationPerIntervalSet struct {
+	Phase             Phase
+	SubnetID          U16
+	RegistrationLimit U16
+	Topics            []Hash
+}
+type EventSubtensorModuleMaxRegistrationsPerBlockSet struct {
+	Phase                  Phase
+	SubnetID               U16
+	RegistrationBlockLimit U16
+	Topics                 []Hash
+}
+type EventSubtensorModuleActivityCutoffSet struct {
+	Phase          Phase
+	SubnetID       U16
+	ActivityCutoff U16
+	Topics         []Hash
+}
+type EventSubtensorModuleRhoSet struct {
+	Phase    Phase
+	SubnetID U16
+	RhoValue U16
+	Topics   []Hash
+}
+type EventSubtensorModuleKappaSet struct {
+	Phase      Phase
+	SubnetID   U16
+	KappaValue U16
+	Topics     []Hash
+}
+type EventSubtensorModuleMinAllowedWeightSet struct {
+	Phase     Phase
+	SubnetID  U16
+	MinWeight U16
+	Topics    []Hash
+}
+type EventSubtensorModuleValidatorBatchSizeSet struct {
+	Phase     Phase
+	SubnetID  U16
+	BatchSize U16
+	Topics    []Hash
+}
+type EventSubtensorModuleValidatorSequenceLengthSet struct {
+	Phase          Phase
+	SubnetID       U16
+	SequenceLength U16
+	Topics         []Hash
+}
+type EventSubtensorModuleValidatorEpochPerResetSet struct {
+	Phase         Phase
+	SubnetID      U16
+	EpochPerReset U16
+	Topics        []Hash
+}
+type EventSubtensorModuleValidatorExcludeQuantileSet struct {
+	Phase           Phase
+	SubnetID        U16
+	ExcludeQuantile U16
+	Topics          []Hash
+}
+type EventSubtensorModuleValidatorEpochLengthSet struct {
+	Phase       Phase
+	SubnetID    U16
+	EpochLength U16
+	Topics      []Hash
+}
+type EventSubtensorModuleValidatorLogitsDivergenceSet struct {
+	Phase            Phase
+	SubnetID         U16
+	LogitsDivergence U16
+	Topics           []Hash
+}
+type EventSubtensorModuleValidatorPruneLenSet struct {
+	Phase       Phase
+	SubnetID    U16
+	PruneLength U64
+	Topics      []Hash
+}
+type EventSubtensorModuleScalingLawPowerSet struct {
+	Phase           Phase
+	SubnetID        U16
+	ScalingLawPower U16
+	Topics          []Hash
+}
+type EventSubtensorModuleSynergyScalingLawPowerSet struct {
+	Phase                  Phase
+	SubnetID               U16
+	SynergyScalingLawPower U16
+	Topics                 []Hash
+}
+type EventSubtensorModuleWeightsSetRateLimitSet struct {
+	Phase     Phase
+	SubnetID  U16
+	RateLimit U64
+	Topics    []Hash
+}
+type EventSubtensorModuleImmunityPeriodSet struct {
+	Phase          Phase
+	SubnetID       U16
+	ImmunityPeriod U16
+	Topics         []Hash
+}
+type EventSubtensorModuleBondsMovingAverageSet struct {
+	Phase         Phase
+	SubnetID      U16
+	MovingAverage U64
+	Topics        []Hash
+}
+type EventSubtensorModuleMaxAllowedValidatorsSet struct {
+	Phase         Phase
+	SubnetID      U16
+	MaxValidators U16
+	Topics        []Hash
+}
+type EventSubtensorModuleAxonServed struct {
+	Phase     Phase
+	SubnetID  U16
+	AccountID AccountID
+	Topics    []Hash
+}
+type EventSubtensorModulePrometheusServed struct {
+	Phase     Phase
+	SubnetID  U16
+	AccountID AccountID
+	Topics    []Hash
+}
+type EventSubtensorModuleEmissionValuesSet struct {
+	Phase  Phase
+	Topics []Hash
+}
+type EventSubtensorModuleNetworkConnectionAdded struct {
+	Phase  Phase
+	Arg1   U16
+	Arg2   U16
+	Arg3   U16
+	Topics []Hash
+}
+type EventSubtensorModuleNetworkConnectionRemoved struct {
+	Phase  Phase
+	Arg1   U16
+	Arg2   U16
+	Topics []Hash
+}
+type EventSubtensorModuleDelegateAdded struct {
+	Phase      Phase
+	AccountID1 AccountID
+	AccountID2 AccountID
+	DelegateID U16
+	Topics     []Hash
+}
+type EventSubtensorModuleDefaultTakeSet struct {
+	Phase       Phase
+	DefaultTake U16
+	Topics      []Hash
+}
+type EventSubtensorModuleWeightsVersionKeySet struct {
+	Phase      Phase
+	NetworkID  U16
+	VersionKey U64
+	Topics     []Hash
+}
+type EventSubtensorModuleMinDifficultySet struct {
+	Phase         Phase
+	NetworkID     U16
+	MinDifficulty U64
+	Topics        []Hash
+}
+type EventSubtensorModuleMaxDifficultySet struct {
+	Phase         Phase
+	NetworkID     U16
+	MaxDifficulty U64
+	Topics        []Hash
+}
+type EventSubtensorModuleServingRateLimitSet struct {
+	Phase     Phase
+	SubnetID  U16
+	RateLimit U64
+	Topics    []Hash
+}
+type EventSubtensorModuleBurnSet struct {
+	Phase      Phase
+	NetworkID  U16
+	BurnAmount U64
+	Topics     []Hash
+}
+type EventSubtensorModuleMaxBurnSet struct {
+	Phase     Phase
+	NetworkID U16
+	MaxBurn   U64
+	Topics    []Hash
+}
+type EventSubtensorModuleMinBurnSet struct {
+	Phase     Phase
+	NetworkID U16
+	MinBurn   U64
+	Topics    []Hash
+}
+type EventSubtensorModuleTxRateLimitSet struct {
+	Phase       Phase
+	TxRateLimit U64
+	Topics      []Hash
+}
+type EventSubtensorModuleRAORecycledForRegistrationSet struct {
+	Phase       Phase
+	NetworkID   U16
+	RecycledRAO U64
+	Topics      []Hash
+}
+
 // EventClaimsClaimed is emitted when an account claims some DOTs
 type EventClaimsClaimed struct {
 	Phase           Phase
